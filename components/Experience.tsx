@@ -11,10 +11,10 @@ export default function Experience() {
 
   const experiences = [
     {
-      title: "iOS Developer",
+      title: "iOS Developer Intern",
       company: "Apple Developer Academy @BINUS",
       period: "Mar 2024 – Feb 2025",
-      type: "Full-time",
+      type: "Internship",
       icon: BriefcaseIcon,
       responsibilities: [
         "Developed 5 cross-platform apps for iOS, iPadOS, and watchOS across domains including daily habits, games, health, and education using Agile methodology and integrating Artificial Intelligence.",
@@ -24,10 +24,10 @@ export default function Experience() {
       color: "from-blue-500 to-purple-600",
     },
     {
-      title: "Product Manager",
+      title: "Product Manager Intern",
       company: "Apple Developer Academy @BINUS",
-      period: "Mar 2024 – Feb 2025",
-      type: "Full-time",
+      period: "Aug 2024 – Feb 2025",
+      type: "Internship",
       icon: BriefcaseIcon,
       responsibilities: [
         "Managed 3 iOS and iPadOS apps by leading product research, defining user personas, identifying unique selling points, and creating detailed Product Requirement Documents.",
@@ -37,17 +37,30 @@ export default function Experience() {
       color: "from-purple-500 to-pink-600",
     },
     {
-      title: "Scholarship Mentor & English Tutor",
+      title: "Scholarship Mentor",
       company: "BINUS University",
       period: "Aug 2022 – Jul 2023",
       type: "Part-time",
       icon: AcademicCapIcon,
       responsibilities: [
         "Mentored 10+ students in topics in Artificial Intelligence, receiving an 'Excellent' Scholarship Mentor Award.",
-        "Tutored 50+ students in job interview preparation and communication skills in English.",
-        "Developed leadership and communication skills through mentoring and teaching activities.",
+        "Developed leadership and communication skills through mentoring activities.",
+        "Provided guidance on academic projects and career development in AI field.",
       ],
       color: "from-green-500 to-teal-600",
+    },
+    {
+      title: "English Tutor",
+      company: "BINUS University",
+      period: "Aug 2022 – Jul 2023",
+      type: "Part-time",
+      icon: AcademicCapIcon,
+      responsibilities: [
+        "Tutored 50+ students in job interview preparation and communication skills in English.",
+        "Developed customized learning materials for different proficiency levels.",
+        "Enhanced students' confidence in professional English communication.",
+      ],
+      color: "from-teal-500 to-blue-600",
     },
   ]
 

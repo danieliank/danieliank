@@ -12,56 +12,32 @@ export default function Skills() {
     {
       title: "Technical Skills",
       skills: [
-        { name: "React", level: 85 },
-        { name: "Javascript", level: 80 },
-        { name: "Swift", level: 90 },
-        { name: "SwiftUI", level: 95 },
-        { name: "Python", level: 75 },
-        { name: "FastAPI", level: 70 },
-        { name: "SQL", level: 80 },
-        { name: "Machine Learning", level: 75 },
-        { name: "MVVM", level: 90 },
-        { name: "MVC", level: 85 },
+        "React",
+        "Javascript",
+        "Swift",
+        "SwiftUI",
+        "Python",
+        "FastAPI",
+        "SQL",
+        "Machine Learning",
+        "MVVM",
+        "MVC",
       ],
       color: "from-blue-500 to-cyan-500",
     },
     {
       title: "Development Tools",
-      skills: [
-        { name: "Git", level: 85 },
-        { name: "Github", level: 90 },
-        { name: "GitFlow", level: 80 },
-        { name: "Firebase", level: 85 },
-        { name: "Supabase", level: 75 },
-        { name: "Postman", level: 80 },
-        { name: "Xcode", level: 95 },
-        { name: "TestFlight", level: 90 },
-      ],
+      skills: ["Git", "Github", "GitFlow", "Firebase", "Supabase", "Postman", "Xcode", "TestFlight"],
       color: "from-purple-500 to-pink-500",
     },
     {
       title: "Design & Management",
-      skills: [
-        { name: "Notion", level: 90 },
-        { name: "Jira", level: 80 },
-        { name: "Confluence", level: 75 },
-        { name: "Figma", level: 85 },
-        { name: "Miro", level: 80 },
-        { name: "Product Management", level: 85 },
-        { name: "Agile Methodology", level: 90 },
-      ],
+      skills: ["Notion", "Jira", "Confluence", "Figma", "Miro", "Product Management", "Agile Methodology"],
       color: "from-green-500 to-teal-500",
     },
     {
       title: "Soft Skills",
-      skills: [
-        { name: "Problem Solving", level: 95 },
-        { name: "Leadership", level: 85 },
-        { name: "Teamwork", level: 90 },
-        { name: "Pitching", level: 80 },
-        { name: "Communication", level: 90 },
-        { name: "Public Speaking", level: 85 },
-      ],
+      skills: ["Problem Solving", "Leadership", "Teamwork", "Pitching", "Communication", "Public Speaking"],
       color: "from-orange-500 to-red-500",
     },
   ]
@@ -124,47 +100,23 @@ export default function Skills() {
               {category.title}
             </motion.h3>
 
-            <div className="space-y-4">
+            <div className="flex flex-wrap gap-3">
               {category.skills.map((skill, skillIndex) => (
-                <motion.div
+                <motion.span
                   key={skillIndex}
-                  className="group"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                  className={`bg-gradient-to-r ${category.color} text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-300`}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                   transition={{ delay: index * 0.1 + skillIndex * 0.05 }}
+                  whileHover={{
+                    scale: 1.1,
+                    y: -2,
+                    boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-gray-700 font-medium group-hover:text-gray-900 transition-colors duration-200">
-                      {skill.name}
-                    </span>
-                    <span className="text-sm text-gray-500 font-semibold">{skill.level}%</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
-                    <motion.div
-                      className={`h-full bg-gradient-to-r ${category.color} rounded-full relative`}
-                      initial={{ width: 0 }}
-                      animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
-                      transition={{
-                        duration: 1,
-                        delay: index * 0.1 + skillIndex * 0.05,
-                        ease: "easeOut",
-                      }}
-                    >
-                      <motion.div
-                        className="absolute inset-0 bg-white/30 rounded-full"
-                        animate={{
-                          x: ["-100%", "100%"],
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Number.POSITIVE_INFINITY,
-                          ease: "linear",
-                          delay: index * 0.1 + skillIndex * 0.05 + 1,
-                        }}
-                      />
-                    </motion.div>
-                  </div>
-                </motion.div>
+                  {skill}
+                </motion.span>
               ))}
             </div>
           </motion.div>

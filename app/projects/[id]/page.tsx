@@ -2,112 +2,33 @@ import { notFound } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeftIcon, ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline"
+import DownloadButton from "./DownloadButton"
 
 const projects = {
-  "sovereign-heart": {
-    name: "Sovereign Heart",
-    category: "Health & Fitness Games",
+  lightsout: {
+    name: "LightsOut: Find Your Way Out",
+    category: "Games Puzzle",
     description:
-      "Sovereign Heart leverages HealthKit to monitor the user's real-time heart rate, turning physical activity into a thrilling survival experience where users must keep their heart rate elevated to evade virtual zombies with MVVM structure. Built with SwiftUI, HealthKit, WatchKit, and Haptics, the app engages users with haptic feedback and an interactive wrist-based interface.",
-    technologies: ["SwiftUI", "HealthKit", "WatchKit", "Haptics", "MVVM"],
+      "LightsOut is a brain-twisting memory puzzle wrapped in a retro 1-bit aesthetic where players explore mazes that disappear into darkness. The game uniquely challenges spatial memory, requiring players to mentally visualize and recall the maze layout to escape. With the tagline 'Memorize. Move. Escape.' - it's a game where no walls, no hints, just your memory guides you through the darkness. The minimalist black and white design enhances focus and suspense while reducing distraction, allowing players to fully engage with the core mechanic: memory under pressure.",
+    technologies: ["SwiftUI", "Prim's Algorithm", "Core Animation", "Core Haptics", "Maze Generation"],
     features: [
-      "Real-time heart rate monitoring using HealthKit",
-      "Zombie survival gameplay mechanics",
-      "WatchOS native interface",
-      "Haptic feedback integration",
-      "MVVM architecture pattern",
+      "Memory-based maze navigation gameplay",
+      "Retro 1-bit black and white aesthetic",
+      "Progressive difficulty with increasing maze complexity",
+      "Timer-based countdown mode for added challenge",
+      "Offline-first gameplay with zero tracking",
+      "Custom modifiers with shake animation for invalid moves",
+      "Prim's Algorithm for organic, solvable maze structures",
     ],
     challenges: [
-      "Integrating HealthKit with real-time gameplay",
-      "Optimizing performance for Apple Watch",
-      "Creating engaging haptic feedback patterns",
+      "Implementing Prim's Algorithm for dynamic maze generation",
+      "Creating engaging memory-based gameplay mechanics",
+      "Balancing difficulty progression and player retention",
+      "Designing minimalist UI that enhances focus",
+      "Optimizing performance for smooth animations",
     ],
-    link: "",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-  ark: {
-    name: "Ark - Find Animals",
-    category: "Games Entertainment",
-    description:
-      "Ark is an AR-based game where players discover and interact with various virtual animals in real-world locations. It uses augmented reality to overlay animal visuals onto the player's environment, creating an immersive and educational experience that encourages exploration and engagement with wildlife digitally.",
-    technologies: ["ARKit", "SwiftUI", "Core Location", "SceneKit", "RealityKit"],
-    features: [
-      "Augmented reality animal discovery",
-      "Location-based gameplay",
-      "Interactive 3D animal models",
-      "Educational wildlife content",
-      "Real-world environment integration",
-    ],
-    challenges: [
-      "Accurate AR object placement",
-      "Location tracking and optimization",
-      "3D model performance on mobile devices",
-    ],
-    link: "https://testflight.apple.com/join/xkwYdtA2",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-  terapilah: {
-    name: "Terapilah",
-    category: "Health & Fitness Reference",
-    description:
-      "Terapilah is a specialized app designed to support the recovery journey of stroke survivors by focusing on targeted motor exercises. By combining physical therapy with motor imagery techniques, Terapilah creates a comprehensive approach that helps patients regain strength and functionality in affected body parts. The app tailors exercises based on each user's unique muscle grade and areas impacted by stroke, ensuring a personalized therapy experience.",
-    technologies: ["SwiftUI", "HealthKit", "Core ML", "AVFoundation", "Core Data"],
-    features: [
-      "Personalized motor exercises",
-      "Motor imagery techniques",
-      "Muscle grade assessment",
-      "Progress tracking",
-      "Stroke-specific rehabilitation programs",
-    ],
-    challenges: [
-      "Creating accessible UI for stroke survivors",
-      "Developing personalized exercise algorithms",
-      "Integrating medical best practices",
-    ],
-    link: "https://testflight.apple.com/join/Z583J8km",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-  physiquest: {
-    name: "PhysiQuest",
-    category: "Education Games",
-    description:
-      "PhysiQuest, an application that turns complex physics concepts into enjoyable, hands-on experiences. With PhysiQuest, students explore physics through interactive experiments, conceptual material, and exercises that make learning physics exciting and intuitive. The app offers a structured yet flexible learning path with Playground for experiments, Material for concepts, and Exercise for reinforcement.",
-    technologies: ["SwiftUI", "SpriteKit", "Core Animation", "Metal", "Core Graphics"],
-    features: [
-      "Interactive physics playground",
-      "Conceptual learning materials",
-      "Hands-on experiments",
-      "Progress tracking exercises",
-      "Visual physics simulations",
-    ],
-    challenges: [
-      "Accurate physics simulations",
-      "Creating intuitive learning interfaces",
-      "Balancing education with engagement",
-    ],
-    link: "https://testflight.apple.com/join/At4PVBYc",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-  motorq: {
-    name: "MotorQ: Your Go To Motorbike Care Cue",
-    category: "Utilities Lifestyle",
-    description:
-      "MotorQ empowers motorbike owners to take care of their vehicles by tracking service intervals and reminding users when maintenance is due. Designed for those who may not be familiar with motorbike upkeep, MotorQ helps prevent costly repairs by ensuring regular maintenance, ultimately saving money and keeping bikes in optimal condition.",
-    technologies: ["SwiftUI", "Core Data", "UserNotifications", "CloudKit", "WidgetKit"],
-    features: [
-      "Service interval tracking",
-      "Maintenance reminders",
-      "Cost tracking",
-      "Service history",
-      "Widget support",
-    ],
-    challenges: [
-      "Creating intuitive maintenance scheduling",
-      "Implementing reliable notification system",
-      "Designing for non-technical users",
-    ],
-    link: "",
-    image: "/placeholder.svg?height=400&width=600",
+    link: "https://apps.apple.com/us/app/lightsout-find-your-way-out/id6746441274",
+    image: "/images/lightsout.png",
   },
   tinytales: {
     name: "TinyTales",
@@ -128,7 +49,112 @@ const projects = {
       "Implementing natural language processing",
     ],
     link: "https://testflight.apple.com/join/3sskSmpp",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/tinytales.png",
+  },
+  physiquest: {
+    name: "PhysiQuest",
+    category: "Education Games",
+    description:
+      "PhysiQuest, an application that turns complex physics concepts into enjoyable, hands-on experiences. With PhysiQuest, students explore physics through interactive experiments, conceptual material, and exercises that make learning physics exciting and intuitive. The app offers a structured yet flexible learning path with Playground for experiments, Material for concepts, and Exercise for reinforcement.",
+    technologies: ["SwiftUI", "SpriteKit", "Core Animation", "Metal", "Core Graphics"],
+    features: [
+      "Interactive physics playground",
+      "Conceptual learning materials",
+      "Hands-on experiments",
+      "Progress tracking exercises",
+      "Visual physics simulations",
+    ],
+    challenges: [
+      "Accurate physics simulations",
+      "Creating intuitive learning interfaces",
+      "Balancing education with engagement",
+    ],
+    link: "https://testflight.apple.com/join/At4PVBYc",
+    image: "/images/physiquest.png",
+  },
+  terapilah: {
+    name: "Terapilah",
+    category: "Health & Fitness Reference",
+    description:
+      "Terapilah is a specialized app designed to support the recovery journey of stroke survivors by focusing on targeted motor exercises. By combining physical therapy with motor imagery techniques, Terapilah creates a comprehensive approach that helps patients regain strength and functionality in affected body parts. The app tailors exercises based on each user's unique muscle grade and areas impacted by stroke, ensuring a personalized therapy experience.",
+    technologies: ["SwiftUI", "HealthKit", "Core ML", "AVFoundation", "Core Data"],
+    features: [
+      "Personalized motor exercises",
+      "Motor imagery techniques",
+      "Muscle grade assessment",
+      "Progress tracking",
+      "Stroke-specific rehabilitation programs",
+    ],
+    challenges: [
+      "Creating accessible UI for stroke survivors",
+      "Developing personalized exercise algorithms",
+      "Integrating medical best practices",
+    ],
+    link: "https://testflight.apple.com/join/Z583J8km",
+    image: "/images/terapilah.png",
+  },
+  ark: {
+    name: "Ark - Find Animals",
+    category: "Games Entertainment",
+    description:
+      "Ark is an AR-based game where players discover and interact with various virtual animals in real-world locations. It uses augmented reality to overlay animal visuals onto the player's environment, creating an immersive and educational experience that encourages exploration and engagement with wildlife digitally.",
+    technologies: ["ARKit", "SwiftUI", "Core Location", "SceneKit", "RealityKit"],
+    features: [
+      "Augmented reality animal discovery",
+      "Location-based gameplay",
+      "Interactive 3D animal models",
+      "Educational wildlife content",
+      "Real-world environment integration",
+    ],
+    challenges: [
+      "Accurate AR object placement",
+      "Location tracking and optimization",
+      "3D model performance on mobile devices",
+    ],
+    link: "https://testflight.apple.com/join/xkwYdtA2",
+    image: "/images/ark.png",
+  },
+  "sovereign-heart": {
+    name: "Sovereign Heart",
+    category: "Health & Fitness Games",
+    description:
+      "Sovereign Heart leverages HealthKit to monitor the user's real-time heart rate, turning physical activity into a thrilling survival experience where users must keep their heart rate elevated to evade virtual zombies with MVVM structure. Built with SwiftUI, HealthKit, WatchKit, and Haptics, the app engages users with haptic feedback and an interactive wrist-based interface.",
+    technologies: ["SwiftUI", "HealthKit", "WatchKit", "Haptics", "MVVM"],
+    features: [
+      "Real-time heart rate monitoring using HealthKit",
+      "Zombie survival gameplay mechanics",
+      "WatchOS native interface",
+      "Haptic feedback integration",
+      "MVVM architecture pattern",
+    ],
+    challenges: [
+      "Integrating HealthKit with real-time gameplay",
+      "Optimizing performance for Apple Watch",
+      "Creating engaging haptic feedback patterns",
+    ],
+    link: "",
+    image: "/images/sovereign-heart.png",
+  },
+  motorq: {
+    name: "MotorQ: Your Go To Motorbike Care Cue",
+    category: "Utilities Lifestyle",
+    description:
+      "MotorQ empowers motorbike owners to take care of their vehicles by tracking service intervals and reminding users when maintenance is due. Designed for those who may not be familiar with motorbike upkeep, MotorQ helps prevent costly repairs by ensuring regular maintenance, ultimately saving money and keeping bikes in optimal condition.",
+    technologies: ["SwiftUI", "Core Data", "UserNotifications", "CloudKit", "WidgetKit"],
+    features: [
+      "Service interval tracking",
+      "Maintenance reminders",
+      "Cost tracking",
+      "Service history",
+      "Widget support",
+    ],
+    challenges: [
+      "Creating intuitive maintenance scheduling",
+      "Implementing reliable notification system",
+      "Designing for non-technical users",
+    ],
+    link: "",
+    image: "/images/motorq.png",
   },
   iam: {
     name: "iAm: an anxiety-managing notes app",
@@ -149,7 +175,7 @@ const projects = {
       "Implementing secure data storage",
     ],
     link: "https://testflight.apple.com/join/6E212fbe",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/iam.png",
   },
 }
 
@@ -172,8 +198,14 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
         </Link>
 
         <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-          <div className="relative h-64 md:h-96 bg-gray-100">
-            <Image src={project.image || "/placeholder.svg"} alt={project.name} fill className="object-cover" />
+          <div className="relative h-64 md:h-96 bg-white flex items-center justify-center">
+            <Image
+              src={project.image || "/placeholder.svg"}
+              alt={project.name}
+              width={300}
+              height={300}
+              className="object-contain max-h-full"
+            />
             <div className="absolute top-4 right-4 bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
               {project.category}
             </div>
@@ -182,17 +214,20 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
           <div className="p-8">
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
               <h1 className="text-3xl font-bold text-gray-800 mb-4 md:mb-0">{project.name}</h1>
-              {project.link && (
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 flex items-center gap-2"
-                >
-                  <ArrowTopRightOnSquareIcon className="w-4 h-4" />
-                  Try on TestFlight
-                </a>
-              )}
+              <div className="flex gap-3">
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 flex items-center gap-2"
+                  >
+                    <ArrowTopRightOnSquareIcon className="w-4 h-4" />
+                    Link
+                  </a>
+                )}
+                <DownloadButton project={project} />
+              </div>
             </div>
 
             <p className="text-gray-700 text-lg leading-relaxed mb-8">{project.description}</p>
